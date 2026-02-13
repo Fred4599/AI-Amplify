@@ -1,60 +1,39 @@
 ---
 ---
-<section id="join" class="w-full max-w-[1200px] px-6 py-32 z-20">
-    <div class="glass-panel rounded-3xl p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-purple-900/20">
+<section id="join" class="w-full max-w-[1200px] px-4 sm:px-6 py-16 sm:py-24 md:py-32 z-20">
+    <div class="glass-panel rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-purple-900/20">
         <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full"></div>
 
-        <div class="flex flex-col md:flex-row gap-16 relative z-10">
-            <div class="md:w-1/2 flex flex-col justify-center">
-                <div class="reveal-text">
-                    <h2 class="font-display text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-                        Ready to <br><span class="text-purple-400">Build the Future?</span>
-                    </h2>
-                    <p class="text-neutral-400 leading-relaxed mb-8 text-sm md:text-base">
-                        Whether you are a coding wizard or just starting out, there is a place for you. Join the Discord to get started, or sign up for our newsletter.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="px-8 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-neutral-200 transition-colors">
-                            Join Discord
-                        </a>
-                    </div>
+        <div class="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto">
+            <div class="reveal-text">
+                <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
+                    Ready to build faster and think bigger with AI?
+                </h2>
+                <p class="text-neutral-400 leading-relaxed mb-8 text-sm md:text-base">
+                    The main offer is free: join Amplify Academy on Skool for free community and free courses. Learn, ask questions, and be part of a growing community building with AI. Create more time for what matters—family, contribution, or your passion.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto">
+                    <a href="https://www.skool.com/ai-amplify-academy-5501/about" target="_blank" rel="noopener noreferrer" class="group px-8 py-3.5 sm:py-3 bg-white text-black rounded-full font-semibold text-sm hover:bg-neutral-200 transition-colors inline-flex items-center justify-center gap-2 min-h-[48px]">
+                        Join the free community
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#premium" class="px-8 py-3.5 sm:py-3 bg-black/40 border border-white/20 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md text-center min-h-[48px] flex items-center justify-center">
+                        Want more? Premium
+                    </a>
                 </div>
-            </div>
-
-            <div class="md:w-1/2 bg-black/40 border border-white/10 rounded-2xl p-8 backdrop-blur-md reveal-text delay-200">
-                <form class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-1">
-                            <label class="text-[10px] uppercase tracking-wider text-neutral-500 ml-1">First Name</label>
-                            <input type="text" class="w-full bg-neutral-900/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-neutral-900 transition-all text-white placeholder-neutral-700" placeholder="John">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] uppercase tracking-wider text-neutral-500 ml-1">Last Name</label>
-                            <input type="text" class="w-full bg-neutral-900/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-neutral-900 transition-all text-white placeholder-neutral-700" placeholder="Doe">
-                        </div>
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] uppercase tracking-wider text-neutral-500 ml-1">Email</label>
-                        <input type="email" class="w-full bg-neutral-900/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-neutral-900 transition-all text-white placeholder-neutral-700" placeholder="student@amplify.academy">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] uppercase tracking-wider text-neutral-500 ml-1">Interest</label>
-                        <div class="relative">
-                            <select class="w-full bg-neutral-900/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-neutral-900 transition-all text-white appearance-none cursor-pointer">
-                                <option>General AI</option>
-                                <option>Machine Learning</option>
-                                <option>Web Development</option>
-                                <option>Design</option>
-                            </select>
-                            <i data-lucide="chevron-down" class="absolute right-4 top-3.5 w-4 h-4 text-neutral-500 pointer-events-none"></i>
-                        </div>
-                    </div>
-                    <button type="button" class="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-sm font-medium transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] mt-2">
-                        Submit Application
-                    </button>
-                </form>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#join .reveal-text').forEach(el => observer.observe(el));
+</script>

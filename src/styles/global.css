@@ -32,12 +32,74 @@ body {
   color: #ffffff;
   overflow-x: hidden;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile: minimum touch target and safe areas */
+@media (max-width: 768px) {
+  main {
+    padding-inline: env(safe-area-inset-left, 0) env(safe-area-inset-right, 0);
+  }
+}
+
+.touch-manifest {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Hide Scrollbar */
 ::-webkit-scrollbar {
   width: 0px;
+  height: 0px;
   background: transparent;
+}
+
+/* One-line course carousel */
+.courses-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.courses-carousel > * {
+  scroll-snap-align: start;
+}
+
+/* Edge fades on carousel (match page background #050505) */
+.courses-carousel-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem; /* 40px mobile */
+  pointer-events: none;
+  z-index: 1;
+}
+@media (min-width: 640px) {
+  .courses-carousel-fade {
+    width: 4rem; /* 64px desktop */
+  }
+}
+.courses-carousel-fade--left {
+  left: 0;
+  background: linear-gradient(to right, #050505 0%, transparent 100%);
+}
+.courses-carousel-fade--right {
+  right: 0;
+  background: linear-gradient(to left, #050505 0%, transparent 100%);
+}
+
+/* Hero: shadows behind content over purple canvas for readability */
+.hero-title-shadow {
+  text-shadow:
+    0 0 40px rgba(0, 0, 0, 0.7),
+    0 0 80px rgba(0, 0, 0, 0.4),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+}
+.hero-text-shadow {
+  text-shadow:
+    0 0 24px rgba(0, 0, 0, 0.6),
+    0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Fixed Background Canvas */
@@ -77,12 +139,41 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Desktop header bar: smooth shape/layout transition */
+.header-bar-transition {
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    right 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop logo reveal: smooth width + opacity (no jagged pop) */
+.header-logo-reveal {
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width, opacity;
+}
+
+#main-header.is-scrolled #header-logo-wrapper {
+  width: 200px;
+  opacity: 1;
+}
+
 /* Standard Glass */
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Dark glass for mobile nav drawer (matches header pill) */
+.mobile-drawer-glass {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Scroll Reveals */

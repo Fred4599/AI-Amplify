@@ -1,67 +1,150 @@
 ---
 ---
-<header id="main-header" class="fixed top-6 left-1/2 -translate-x-1/2 h-12 rounded-full z-50 flex items-center justify-center glass-pill px-1 transition-all duration-700 w-auto min-w-[340px]">
-    <div class="flex items-center justify-center w-full relative">
-        <div id="nav-left" class="flex items-center gap-1 transition-all duration-700">
+<header id="main-header" class="fixed top-4 left-4 right-4 md:top-6 md:left-1/2 md:right-auto md:-translate-x-1/2 h-12 md:min-w-[340px] md:w-auto rounded-full z-50 flex items-center justify-between md:justify-center glass-pill px-3 md:px-1 header-bar-transition">
+    <div class="flex items-center justify-start md:justify-center w-full relative">
+        <!-- Desktop nav: left links -->
+        <div id="nav-left" class="hidden md:flex items-center gap-1 transition-all duration-700">
             <a href="#about" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">About</a>
-            <a href="#events-trigger" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">Events</a>
+            <a href="#courses" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">Courses</a>
         </div>
 
-        <div id="header-logo-wrapper" class="overflow-hidden w-0 opacity-0 transition-all duration-700 flex justify-center items-center whitespace-nowrap">
+        <!-- Mobile: logo always visible -->
+        <a href="#" class="md:hidden font-display font-bold text-sm tracking-tight text-white shrink-0 transition-colors mobile-header-logo">AI AMPLIFY</a>
+
+        <div id="header-logo-wrapper" class="header-logo-reveal overflow-hidden w-0 opacity-0 md:flex justify-center items-center whitespace-nowrap hidden">
             <span class="font-display font-bold text-sm tracking-tight text-white px-8">AI AMPLIFY</span>
         </div>
 
-        <div id="nav-right" class="flex items-center gap-1 transition-all duration-700">
+        <!-- Desktop nav: right links (no Contact—footer has contact) -->
+        <div id="nav-right" class="hidden md:flex items-center gap-1 transition-all duration-700">
+            <a href="#premium" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">Premium</a>
             <a href="#join" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">Join</a>
-            <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-medium text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer header-link">Contact</a>
         </div>
     </div>
+
+    <!-- Mobile menu button (white so it’s obvious to tap) -->
+    <div class="md:hidden shrink-0">
+        <button id="mobile-menu-btn" type="button" class="p-2 -mr-2 text-white hover:opacity-80 transition-opacity cursor-pointer touch-manifest flex flex-col justify-center items-center gap-1.5" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-lines flex flex-col gap-1.5" id="menu-icon">
+            <span class="block w-6 h-0.5 bg-white rounded-full"></span>
+            <span class="block w-6 h-0.5 bg-white rounded-full"></span>
+            <span class="block w-6 h-0.5 bg-white rounded-full"></span>
+        </span>
+        <span class="hamburger-x hidden relative w-6 h-6" id="close-icon">
+            <span class="absolute inset-0 m-auto w-6 h-0.5 bg-white rounded-full rotate-45"></span>
+            <span class="absolute inset-0 m-auto w-6 h-0.5 bg-white rounded-full -rotate-45"></span>
+        </span>
+        </button>
+    </div>
 </header>
+
+<!-- Mobile nav: slide-in drawer from right -->
+<div id="mobile-nav-backdrop" class="fixed inset-0 z-40 md:hidden bg-black/40 opacity-0 pointer-events-none transition-opacity duration-200" aria-hidden="true"></div>
+<div id="mobile-nav" class="fixed top-0 right-0 bottom-0 z-50 md:hidden w-[min(280px,85vw)] border-l border-white/10 shadow-2xl translate-x-full transition-transform duration-300 ease-out flex flex-col mobile-drawer-glass" aria-hidden="true">
+    <div class="flex items-center justify-between p-4 border-b border-white/10">
+        <span class="font-display font-bold text-sm tracking-tight text-white">Menu</span>
+        <button type="button" id="mobile-nav-close" class="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Close menu">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+    </div>
+    <nav class="flex flex-col p-4 gap-1">
+        <a href="#about" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors">About</a>
+        <a href="#courses" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors">Courses</a>
+        <a href="#premium" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors">Premium</a>
+        <a href="#join" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors">Join</a>
+        <a href="#contact" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors">Contact</a>
+    </nav>
+</div>
 
 <script>
     const header = document.getElementById('main-header');
     const headerLogoWrapper = document.getElementById('header-logo-wrapper');
-    
-    window.addEventListener('scroll', () => {
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavCloseBtn = document.getElementById('mobile-nav-close');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    function isMobile() {
+        return window.matchMedia('(max-width: 767px)').matches;
+    }
+
+    function openMobileNav() {
+        if (!mobileNav || !mobileNavBackdrop || !mobileMenuBtn) return;
+        mobileNavBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        mobileNavBackdrop.classList.add('opacity-100');
+        mobileNavBackdrop.setAttribute('aria-hidden', 'false');
+        mobileNav.classList.remove('translate-x-full');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        mobileMenuBtn.setAttribute('aria-label', 'Close menu');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function closeMobileNav() {
+        if (!mobileNav || !mobileNavBackdrop || !mobileMenuBtn) return;
+        mobileNav.classList.add('translate-x-full');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNavBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        mobileNavBackdrop.classList.remove('opacity-100');
+        mobileNavBackdrop.setAttribute('aria-hidden', 'true');
+        mobileMenuBtn.setAttribute('aria-label', 'Open menu');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    mobileMenuBtn?.addEventListener('click', () => {
+        const isOpen = mobileNav?.getAttribute('aria-hidden') === 'false';
+        if (isOpen) closeMobileNav();
+        else openMobileNav();
+    });
+
+    mobileNavCloseBtn?.addEventListener('click', closeMobileNav);
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => closeMobileNav());
+    });
+
+    mobileNavBackdrop?.addEventListener('click', () => closeMobileNav());
+
+    let scrollTicking = false;
+    const scrollTrigger = 50;
+
+    function updateHeaderScroll() {
         const scrollY = window.scrollY;
-        const triggerPoint = 50;
+        const mobile = isMobile();
 
-        if (scrollY > triggerPoint) {
-            header?.classList.remove('top-6', 'rounded-full', 'w-auto', 'glass-pill');
-            header?.classList.add('top-0', 'w-full', 'rounded-none', 'bg-white', 'border-b', 'border-white/10');
-            if (header) {
-                header.style.backgroundColor = 'rgba(255,255,255, 0.95)';
-                header.style.borderBottom = '1px solid #e5e5e5';
-            }
-
-            document.querySelectorAll('.header-link').forEach(link => {
-                link.classList.remove('text-neutral-400', 'hover:text-white');
-                link.classList.add('text-neutral-500', 'hover:text-black', 'hover:bg-neutral-100');
-            });
-
-            if (headerLogoWrapper) {
-                headerLogoWrapper.style.width = '200px';
-                headerLogoWrapper.style.opacity = '1';
-                const logoSpan = headerLogoWrapper.querySelector('span');
-                if (logoSpan) logoSpan.style.color = 'black';
-            }
-        } else {
-            header?.classList.add('top-6', 'rounded-full', 'w-auto', 'glass-pill');
-            header?.classList.remove('top-0', 'w-full', 'rounded-none', 'bg-white', 'border-b', 'border-white/10');
+        if (scrollY > scrollTrigger) {
+            header?.classList.add('is-scrolled');
+            header?.classList.remove('md:top-6', 'md:w-auto');
+            header?.classList.add('top-0', 'left-0', 'right-0', 'md:left-1/2', 'md:right-auto', 'md:-translate-x-1/2');
             if (header) {
                 header.style.backgroundColor = '';
                 header.style.borderBottom = '';
             }
-
-            document.querySelectorAll('.header-link').forEach(link => {
-                link.classList.add('text-neutral-400', 'hover:text-white');
-                link.classList.remove('text-neutral-500', 'hover:text-black', 'hover:bg-neutral-100');
-            });
-
-            if (headerLogoWrapper) {
-                headerLogoWrapper.style.width = '0px';
-                headerLogoWrapper.style.opacity = '0';
+        } else {
+            header?.classList.remove('is-scrolled');
+            header?.classList.add('md:top-6', 'md:w-auto', 'top-4', 'left-4', 'right-4');
+            header?.classList.remove('top-0', 'left-0', 'right-0', 'md:left-1/2', 'md:right-auto', 'md:-translate-x-1/2');
+            if (header) {
+                header.style.backgroundColor = '';
+                header.style.borderBottom = '';
             }
         }
-    });
+        scrollTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            requestAnimationFrame(updateHeaderScroll);
+            scrollTicking = true;
+        }
+    }, { passive: true });
+    updateHeaderScroll();
 </script>

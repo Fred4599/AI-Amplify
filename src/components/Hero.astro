@@ -2,46 +2,44 @@
 ---
 <canvas id="hero-canvas"></canvas>
 
-<section id="hero" class="relative w-full h-[120vh] overflow-hidden flex flex-col items-center justify-start pt-32 perspective-container">
+<section id="hero" class="relative w-full min-h-[100vh] h-[120vh] max-h-[900px] sm:max-h-none overflow-hidden flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-32 pb-8 perspective-container">
     
-    <!-- Vignette & Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-[#050505] z-[1] pointer-events-none"></div>
+    <!-- Light vignette + soft blend only at very bottom into next section -->
+    <div class="absolute inset-0 z-[1] pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.04) 50%, transparent 75%, #050505 100%);"></div>
 
     <!-- Parallax Content Container -->
     <div id="hero-content" class="relative z-20 flex flex-col items-center text-center w-full h-full transform-style-3d">
         
         <!-- CLUB LOGO -->
         <div class="mb-10 hero-layer relative z-30 animate-float" style="transform: translateZ(60px)">
-            <div class="w-24 h-24 md:w-32 md:h-32 relative group">
-                <div class="absolute inset-0 bg-purple-500/30 blur-2xl rounded-full group-hover:bg-purple-400/40 transition-all duration-500"></div>
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AMPLIFY&backgroundColor=000000" alt="AI Amplify Logo" class="relative w-full h-full object-contain drop-shadow-2xl border border-white/10 rounded-2xl bg-black/50 backdrop-blur-sm p-2">
+            <div class="w-40 h-40 md:w-52 md:h-52 relative group">
+                <div class="absolute inset-0 bg-purple-500/20 blur-2xl rounded-full group-hover:bg-purple-400/30 transition-all duration-500"></div>
+                <img src="/logo.png" alt="AI Amplify Academy" class="relative w-full h-full object-contain drop-shadow-2xl" style="filter: drop-shadow(0 0 40px rgba(0,0,0,0.6)) drop-shadow(0 4px 24px rgba(0,0,0,0.5));" />
             </div>
         </div>
 
         <!-- Main Title with Scramble Effect & Blend Mode -->
-        <div id="hero-title-group" class="relative mb-6 hero-layer z-30 mix-difference px-4" style="transform: translateZ(80px)">
-            <h1 class="font-display font-bold text-[10vw] md:text-[120px] leading-[0.85] tracking-tighter text-white drop-shadow-2xl">
+        <div id="hero-title-group" class="relative mb-4 sm:mb-6 hero-layer z-30 mix-difference px-3 sm:px-4" style="transform: translateZ(80px)">
+            <h1 class="font-display font-bold text-[clamp(2.5rem,12vw,120px)] leading-[0.85] tracking-tighter text-white hero-title-shadow">
                 <span class="block scramble-text" data-text="AI AMPLIFY"></span>
                 <span class="block scramble-text text-white/90" data-text="ACADEMY"></span>
             </h1>
         </div>
 
         <!-- Subtext -->
-        <p class="font-sans text-lg md:text-xl text-neutral-300 max-w-xl leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_1.2s_forwards] hero-layer mix-blend-screen z-30" style="transform: translateZ(40px)">
-            The premier intersection of <span class="text-white font-medium">ambition</span> and <span class="text-white font-medium">artificial intelligence</span>.
-        </p>
+        <div class="font-sans text-base sm:text-lg md:text-xl text-neutral-300 max-w-xl leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_1.2s_forwards] hero-layer mix-blend-screen z-30 px-4 hero-text-shadow" style="transform: translateZ(40px)">
+            <p>Do more without hiring more. <span class="text-white font-medium">Learn AI the way entrepreneurs actually use it</span>—and get your time back.</p>
+        </div>
 
         <!-- Buttons -->
-        <div class="mt-10 flex gap-4 opacity-0 animate-[fadeInUp_1s_ease-out_1.4s_forwards] hero-layer z-40" style="transform: translateZ(70px)">
-            <button class="group relative px-8 py-3 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95 overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                <span class="relative z-10 flex items-center gap-2">
-                    Join Community 
-                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-                </span>
-            </button>
-            <button class="px-8 py-3 bg-black/40 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md">
-                View Projects
-            </button>
+        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-[fadeInUp_1s_ease-out_1.4s_forwards] hero-layer z-40 w-full sm:w-auto px-4 sm:px-0" style="transform: translateZ(70px)">
+            <a href="https://www.skool.com/ai-amplify-academy-5501/about" target="_blank" rel="noopener noreferrer" class="group relative px-8 py-3.5 sm:py-3 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95 overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.3),0_4px_24px_rgba(0,0,0,0.4)] inline-flex items-center justify-center gap-2 min-h-[48px]">
+                Join Community
+                <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+            <a href="#courses" class="px-8 py-3.5 sm:py-3 bg-black/40 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md text-center min-h-[48px] flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+                What We Teach
+            </a>
         </div>
         
         <!-- Floating Code Decor Elements -->
@@ -78,7 +76,7 @@
         </div>
 
         <!-- GROUP PHOTO (Bottom Layer) -->
-        <div class="absolute bottom-0 left-0 w-full h-[65vh] z-10 hero-layer mask-gradient-top pointer-events-none" style="transform: translateZ(10px)">
+        <div class="absolute bottom-0 left-0 w-full h-[50vh] sm:h-[65vh] z-10 hero-layer mask-gradient-top pointer-events-none" style="transform: translateZ(10px)">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="AI Amplify Members" class="w-full h-full object-cover opacity-80 grayscale-[30%] hover:grayscale-0 transition-all duration-1000">
             <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
         </div>

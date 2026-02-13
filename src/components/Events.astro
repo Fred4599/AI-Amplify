@@ -1,169 +1,69 @@
 ---
+const courses = [
+  { title: 'Building Websites with AI', tag: 'Course', image: '/courses/course-websites.png', color: 'purple' },
+  { title: 'Building AI Backend Systems', tag: 'Course', image: '/courses/course-backend.png', color: 'violet' },
+  { title: 'Building Videos', tag: 'Course', image: '/courses/course-videos.jpg', color: 'fuchsia' },
+  { title: 'Building Apps', tag: 'Course', image: '/courses/course-apps.jpg', color: 'pink' },
+  { title: 'Creating AI Agents', tag: 'Course', image: '/courses/course-agents.png', color: 'purple' },
+  { title: 'AI Photos & Visuals', tag: 'Course', image: '/courses/course-photos.png', color: 'violet' },
+  { title: 'Flyers & Presentations', tag: 'Course', image: '/courses/course-flyers.png', color: 'fuchsia' },
+];
+const colorClasses: Record<string, string> = {
+  purple: 'text-purple-400 bg-purple-500/10',
+  violet: 'text-violet-400 bg-violet-500/10',
+  fuchsia: 'text-fuchsia-400 bg-fuchsia-500/10',
+  pink: 'text-pink-400 bg-pink-500/10',
+};
 ---
-<div id="events-trigger" class="relative w-full h-[200vh] mb-40 bg-black/20 z-20">
-    <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-        <div id="event-card" class="relative w-[80%] h-[75vh] rounded-3xl bg-[#0a0a0a] border border-white/10 overflow-hidden flex flex-col transition-all duration-500 will-change-transform shadow-2xl">
-            <div class="flex-1 w-full p-8 md:p-12 flex flex-col relative z-20">
-                <div class="flex justify-between items-start mb-6">
-                    <span class="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] font-bold tracking-widest uppercase">Upcoming</span>
-                    <span class="text-neutral-500 font-mono text-xs">24 OCT 2026</span>
-                </div>
+<div id="courses" class="relative w-full min-h-screen py-16 sm:py-24 md:py-32 z-20">
+    <div class="w-full max-w-[1200px] mx-auto px-4 sm:px-6">
+        <div class="reveal-text mb-4">
+            <span class="text-xs font-mono text-purple-400 uppercase tracking-widest">What we teach</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 reveal-text">
+            Your all-in-one resource
+        </h2>
+        <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mb-10 sm:mb-16 reveal-text">
+            Use AI to grow, scale, or take your business to the next level. Practical courses for business owners—from websites and apps to videos, photos, flyers, and more.
+        </p>
 
-                <div class="flex flex-col md:flex-row gap-10 items-end justify-between h-full pb-8">
-                    <div class="max-w-2xl">
-                        <h2 class="font-display text-4xl md:text-7xl font-semibold tracking-tighter text-white mb-4 leading-none">
-                            LLM FINE-TUNING<br><span class="text-neutral-600">WORKSHOP</span>
-                        </h2>
-                        <p class="text-neutral-400 text-sm md:text-base max-w-md">
-                            Deep dive into LoRA and QLoRA techniques. Bring your laptops and prepare to train your own custom models on restricted hardware.
-                        </p>
-                    </div>
-
-                    <button class="group flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-neutral-200 transition-colors whitespace-nowrap">
-                        Learn More
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
+        <div class="reveal-text -mx-4 sm:-mx-6 relative">
+            <div class="courses-carousel-fade courses-carousel-fade--left" aria-hidden="true"></div>
+            <div class="courses-carousel-fade courses-carousel-fade--right" aria-hidden="true"></div>
+            <div class="courses-carousel flex gap-4 overflow-x-auto overflow-y-hidden pb-2 px-4 sm:px-6 scroll-smooth" aria-label="Course carousel">
+                {courses.map((course) => (
+                    <a href="#join" class="group flex-shrink-0 w-[280px] sm:w-[320px] rounded-2xl bg-neutral-900 border border-white/5 overflow-hidden hover:border-white/20 hover:bg-neutral-800/80 transition-all cursor-pointer snap-start">
+                        <div class="aspect-video w-full overflow-hidden bg-neutral-800">
+                            <img src={course.image} alt={course.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class={`text-[10px] font-mono px-2 py-1 rounded ${colorClasses[course.color]}`}>{course.tag}</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h4 class="text-white font-medium text-lg leading-tight">{course.title}</h4>
+                        </div>
+                    </a>
+                ))}
             </div>
+        </div>
 
-            <div class="w-full h-[1px] bg-white/10"></div>
-
-            <!-- Enhanced Roadmap Section -->
-            <div id="events-carousel-section" class="h-72 bg-neutral-900/30 backdrop-blur-sm flex flex-col justify-center relative overflow-hidden transition-opacity duration-500 opacity-50">
-                <div class="flex justify-between items-center px-12 mb-6">
-                    <span class="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Future Roadmap</span>
-                    <div class="flex gap-2">
-                        <button class="p-2 rounded-full border border-white/10 hover:bg-white/10 text-white transition-colors">
-                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                        </button>
-                        <button class="p-2 rounded-full border border-white/10 hover:bg-white/10 text-white transition-colors">
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex overflow-hidden w-full relative group">
-                    <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10"></div>
-                    <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10"></div>
-
-                    <div class="flex gap-6 animate-marquee hover:[animation-play-state:paused] items-center px-4">
-                        <!-- Carousel Items -->
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-purple-400 font-mono bg-purple-500/10 px-2 py-1 rounded">SESSION 01</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Creating AI Videos</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-violet-400 font-mono bg-violet-500/10 px-2 py-1 rounded">SESSION 02</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Making AI Photos</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-fuchsia-400 font-mono bg-fuchsia-500/10 px-2 py-1 rounded">SESSION 03</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Vibe Coding</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-pink-400 font-mono bg-pink-500/10 px-2 py-1 rounded">SESSION 04</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Building AI Agents</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-purple-400 font-mono bg-purple-500/10 px-2 py-1 rounded">SESSION 05</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Prompt Engineering</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <!-- Duplicates for seamless loop -->
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-purple-400 font-mono bg-purple-500/10 px-2 py-1 rounded">SESSION 01</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Creating AI Videos</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-violet-400 font-mono bg-violet-500/10 px-2 py-1 rounded">SESSION 02</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Making AI Photos</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-
-                        <div class="w-80 h-32 bg-neutral-900 border border-white/5 rounded-2xl p-6 flex flex-col justify-center hover:border-white/20 hover:bg-neutral-800 transition-all cursor-pointer shrink-0 group/card">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] text-fuchsia-400 font-mono bg-fuchsia-500/10 px-2 py-1 rounded">SESSION 03</span>
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-600 group-hover/card:text-white transition-colors"></i>
-                            </div>
-                            <h4 class="text-white font-medium text-lg leading-tight">Vibe Coding</h4>
-                            <p class="text-neutral-500 text-xs mt-1">Workshop</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Neural Glow in Events -->
-            <div class="absolute -top-1/2 -right-1/2 w-full h-full bg-purple-600/10 blur-[120px] pointer-events-none mix-blend-screen"></div>
+        <div class="mt-12 text-center reveal-text">
+            <a href="#join" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 min-h-[48px] bg-white text-black rounded-full font-medium text-sm hover:bg-neutral-200 transition-colors">
+                Join free to access all courses
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
         </div>
     </div>
 </div>
 
 <script>
-    const eventsTrigger = document.getElementById('events-trigger');
-    const eventCard = document.getElementById('event-card');
-    const carouselSection = document.getElementById('events-carousel-section');
-
-    window.addEventListener('scroll', () => {
-        if (!eventsTrigger || !eventCard || !carouselSection) return;
-        const rect = eventsTrigger.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        let progress = (viewportHeight - rect.top) / (rect.height);
-        progress = Math.max(0, Math.min(1, progress));
-        
-        let width = 80;
-        let height = 75; 
-        let radius = 1.5;
-
-        if (progress > 0 && progress < 1) {
-            if (progress > 0.1 && progress < 0.9) {
-                width = 100;
-                height = 100;
-                radius = 0;
-                eventCard.style.borderWidth = '0px';
-                carouselSection.style.opacity = '1';
-            } else {
-                width = 80 + (progress < 0.5 ? (progress * 200) : ((1-progress)*200)); 
-                if(width > 100) width = 100;
-                height = 75;
-                radius = 1.5;
-                eventCard.style.borderWidth = '1px';
-                carouselSection.style.opacity = '0.5';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
             }
-        }
-
-        eventCard.style.width = `${width}%`;
-        eventCard.style.height = `${height}vh`;
-        eventCard.style.borderRadius = `${radius}rem`;
-    });
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
 </script>

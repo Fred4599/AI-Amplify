@@ -1,0 +1,58 @@
+---
+import { BOOKING_URL } from '../config';
+---
+<section id="problem-solution" class="w-full max-w-[1200px] px-4 sm:px-6 py-16 sm:py-20 md:py-24 z-20 relative scroll-mt-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Problem: agitate the pain -->
+        <div class="reveal-text">
+            <span class="text-xs font-mono text-red-400/90 uppercase tracking-widest mb-4 block">The problem</span>
+            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+                You know AI can make you money. So why hasn't it yet?
+            </h2>
+            <ul class="space-y-4 text-neutral-400 text-base leading-relaxed">
+                <li class="flex gap-3">
+                    <span class="text-red-400/80 mt-1 shrink-0">—</span>
+                    <span>You know AI could create new revenue or even a new business—but you <span class="text-white font-medium">don't know where to start</span>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-red-400/80 mt-1 shrink-0">—</span>
+                    <span>You've tried tools and courses, but you still don't have a <span class="text-white font-medium">clear plan that fits your situation</span>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-red-400/80 mt-1 shrink-0">—</span>
+                    <span>You're busy. You need <span class="text-white font-medium">clarity fast</span>—not another long course or another rabbit hole.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-red-400/80 mt-1 shrink-0">—</span>
+                    <span>You don't want to waste months guessing. You want a <span class="text-white font-medium">direction and next steps</span>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Solution: the fix + CTA -->
+        <div class="reveal-text lg:sticky lg:top-28">
+            <span class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-4 block">The solution</span>
+            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                One 15-minute call. Clarity and a roadmap—no pitch.
+            </h2>
+            <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-6">
+                Instead of more overwhelm, get a <span class="text-white font-medium">personalized roadmap</span> and clarity on your best next step. Free strategy call. No obligation. You walk away with a plan either way.
+            </p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black rounded-full text-base font-semibold hover:bg-neutral-200 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_24px_rgba(255,255,255,0.2)] min-h-[54px]">
+                Book your free 15-min strategy call
+                <i data-lucide="arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#problem-solution .reveal-text').forEach(el => observer.observe(el));
+</script>

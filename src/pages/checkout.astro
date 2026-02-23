@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Replace this with your Stripe, Paddle, or other checkout URL.
+const CHECKOUT_URL = import.meta.env.PUBLIC_CHECKOUT_URL || '';
+---
+
+<Layout title="Checkout | Semi Private Coaching | AI Amplify Academy">
+	<Header />
+	<main class="w-full flex flex-col items-center relative z-10 min-h-[60vh] pt-24 px-4">
+		{CHECKOUT_URL ? (
+			<div class="max-w-lg text-center">
+				<p class="text-neutral-400 mb-6">Redirecting you to checkout…</p>
+				<a href={CHECKOUT_URL} class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition-all">
+					Continue to checkout
+					<i data-lucide="arrow-right" class="w-4 h-4"></i>
+				</a>
+			</div>
+		) : (
+			<div class="max-w-lg text-center glass-panel rounded-2xl p-8">
+				<h1 class="font-display text-xl font-bold text-white mb-2">Checkout</h1>
+				<p class="text-neutral-400 text-sm mb-6">
+					Add your checkout link: set <code class="text-purple-400">PUBLIC_CHECKOUT_URL</code> in <code class="text-purple-400">.env</code>, or edit <code class="text-purple-400">src/pages/checkout.astro</code> and set <code class="text-purple-400">CHECKOUT_URL</code>.
+				</p>
+				<a href="/semi-private-coaching" class="text-purple-400 hover:text-white text-sm font-medium">← Back to Semi Private Coaching</a>
+			</div>
+		)}
+	</main>
+	<Footer />
+</Layout>
+

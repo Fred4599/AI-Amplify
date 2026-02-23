@@ -1,0 +1,67 @@
+---
+import { BOOKING_URL } from '../config';
+const faqs = [
+  {
+    question: 'Is the strategy call really free?',
+    answer: "Yes, the call is completely free. The tools I recommend do tend to cost money, but I'll break down how they can quickly become an investment.",
+  },
+  {
+    question: 'What do we talk about on the call?',
+    answer: "We'll spend the 15 minutes getting clear on which direction might be best for you and a roadmap to help you start strong.",
+  },
+  {
+    question: "Who is this for?",
+    answer: "This is for individuals who are entrepreneurs or who aspire to be entrepreneurs and feel there's an opportunity to earn additional income with the power of AI.",
+  },
+  {
+    question: 'How long is the call?',
+    answer: "The call is 15 minutes, and I'll also share how you can get continued support.",
+  },
+  {
+    question: 'Do I need to be technical?',
+    answer: 'No. There are opportunities for every skill level.',
+  },
+];
+---
+<section id="faq" class="w-full max-w-[1200px] px-4 sm:px-6 py-12 sm:py-16 md:py-20 z-20 relative scroll-mt-24">
+    <div class="reveal-text">
+        <span class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-4 block">FAQ</span>
+        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-8">
+            Common questions
+        </h2>
+    </div>
+    <div class="space-y-2 reveal-text">
+        {faqs.map((faq) => (
+            <details class="group rounded-xl bg-white/5 border border-white/10 overflow-hidden hover:border-white/20 transition-colors">
+                <summary class="px-4 sm:px-6 py-4 cursor-pointer list-none flex items-center justify-between gap-4 text-left font-medium text-white text-sm sm:text-base">
+                    <span>{faq.question}</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 shrink-0 text-neutral-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-4 sm:px-6 pb-4 pt-0">
+                    <p class="text-neutral-400 text-sm leading-relaxed">{faq.answer}</p>
+                </div>
+            </details>
+        ))}
+    </div>
+    <div class="mt-10 text-center reveal-text">
+        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black rounded-full font-semibold text-sm hover:bg-neutral-200 transition-all min-h-[48px]">
+            Ready? Book your free 15-min call
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#faq .reveal-text').forEach(el => observer.observe(el));
+    // Re-init Lucide icons after expand (for chevron)
+    document.querySelectorAll('#faq details').forEach((el) => {
+        el.addEventListener('toggle', () => { if (typeof lucide !== 'undefined') lucide.createIcons(); });
+    });
+</script>

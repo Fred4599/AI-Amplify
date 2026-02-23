@@ -209,3 +209,12 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Sticky call CTA: visible on mobile always; on desktop when scrolled past hero */
+@media (min-width: 768px) {
+  .sticky-call-cta-bar.sticky-cta-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}

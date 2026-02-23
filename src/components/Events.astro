@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config';
 const courses = [
   { title: 'Building Websites with AI', tag: 'Course', image: '/courses/course-websites.png', color: 'purple' },
   { title: 'Building AI Backend Systems', tag: 'Course', image: '/courses/course-backend.png', color: 'violet' },
@@ -32,7 +33,7 @@ const colorClasses: Record<string, string> = {
             <div class="courses-carousel-fade courses-carousel-fade--right" aria-hidden="true"></div>
             <div class="courses-carousel flex gap-4 overflow-x-auto overflow-y-hidden pb-2 px-4 sm:px-6 scroll-smooth" aria-label="Course carousel">
                 {courses.map((course) => (
-                    <a href="#join" class="group flex-shrink-0 w-[280px] sm:w-[320px] rounded-2xl bg-neutral-900 border border-white/5 overflow-hidden hover:border-white/20 hover:bg-neutral-800/80 transition-all cursor-pointer snap-start">
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group flex-shrink-0 w-[280px] sm:w-[320px] rounded-2xl bg-neutral-900 border border-white/5 overflow-hidden hover:border-white/20 hover:bg-neutral-800/80 transition-all cursor-pointer snap-start">
                         <div class="aspect-video w-full overflow-hidden bg-neutral-800">
                             <img src={course.image} alt={course.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
@@ -49,8 +50,8 @@ const colorClasses: Record<string, string> = {
         </div>
 
         <div class="mt-12 text-center reveal-text">
-            <a href="#join" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 min-h-[48px] bg-white text-black rounded-full font-medium text-sm hover:bg-neutral-200 transition-colors">
-                Join free to access all courses
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 min-h-[48px] bg-white text-black rounded-full font-semibold text-sm hover:bg-neutral-200 transition-colors">
+                Get a plan for your business — Book your free strategy call
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>

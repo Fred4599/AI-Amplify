@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config';
 ---
 <canvas id="hero-canvas"></canvas>
 
@@ -18,27 +19,29 @@
             </div>
         </div>
 
+        <!-- Outcome-first hook (Brunson/Hormozi: lead with the offer) -->
+        <p class="font-sans text-sm sm:text-base text-purple-300/90 uppercase tracking-widest mb-3 hero-layer z-30 opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards] px-4" style="transform: translateZ(40px)">Free 15-Min Strategy Call</p>
+
         <!-- Main Title with Scramble Effect & Blend Mode -->
         <div id="hero-title-group" class="relative mb-4 sm:mb-6 hero-layer z-30 mix-difference px-3 sm:px-4" style="transform: translateZ(80px)">
-            <h1 class="font-display font-bold text-[clamp(2.5rem,12vw,120px)] leading-[0.85] tracking-tighter text-white hero-title-shadow">
-                <span class="block scramble-text" data-text="AI AMPLIFY"></span>
-                <span class="block scramble-text text-white/90" data-text="ACADEMY"></span>
+            <h1 class="font-display font-bold text-[clamp(1.75rem,5vw,3rem)] sm:text-[clamp(2rem,6vw,3.5rem)] leading-[1.1] tracking-tight uppercase text-white hero-title-shadow max-w-4xl mx-auto">
+                <span class="block scramble-text" data-text="The AI Gold Rush is Here:"></span>
             </h1>
         </div>
 
-        <!-- Subtext -->
-        <div class="font-sans text-base sm:text-lg md:text-xl text-neutral-300 max-w-xl leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_1.2s_forwards] hero-layer mix-blend-screen z-30 px-4 hero-text-shadow" style="transform: translateZ(40px)">
-            <p>Do more without hiring more. <span class="text-white font-medium">Learn AI the way entrepreneurs actually use it</span>—and get your time back.</p>
+        <!-- Subtext: clear outcome + CTA hint -->
+        <div class="font-sans text-base sm:text-lg md:text-xl text-neutral-300 max-w-2xl leading-relaxed opacity-0 animate-[fadeInUp_1s_ease-out_1.2s_forwards] hero-layer mix-blend-screen z-30 px-4 hero-text-shadow" style="transform: translateZ(40px)">
+            <p>Get Your Custom Roadmap to Building a <span class="text-white font-medium">Profitable AI Side Business</span> in Our Free 15-Minute Strategy Call.</p>
         </div>
 
-        <!-- Buttons -->
-        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-[fadeInUp_1s_ease-out_1.4s_forwards] hero-layer z-40 w-full sm:w-auto px-4 sm:px-0" style="transform: translateZ(70px)">
-            <a href="https://www.skool.com/ai-amplify-academy-5501/about" target="_blank" rel="noopener noreferrer" class="group relative px-8 py-3.5 sm:py-3 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95 overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.3),0_4px_24px_rgba(0,0,0,0.4)] inline-flex items-center justify-center gap-2 min-h-[48px]">
-                Join Community
+        <!-- Buttons: primary CTA full-width on mobile for maximum conversions -->
+        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-[fadeInUp_1s_ease-out_1.4s_forwards] hero-layer z-40 w-full max-w-md sm:max-w-none sm:w-auto px-4 sm:px-0" style="transform: translateZ(70px)">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group relative w-full sm:w-auto px-8 py-4 sm:py-3 bg-white text-black rounded-full text-base sm:text-sm font-semibold hover:bg-neutral-200 transition-all hover:scale-[1.02] active:scale-[0.98] overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.3),0_4px_24px_rgba(0,0,0,0.4)] inline-flex items-center justify-center gap-2 min-h-[52px] sm:min-h-[48px]">
+                Book Your Free 15-Min Strategy Call
                 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
             </a>
-            <a href="#courses" class="px-8 py-3.5 sm:py-3 bg-black/40 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md text-center min-h-[48px] flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
-                What We Teach
+            <a href="#what-you-get" class="w-full sm:w-auto px-8 py-3.5 sm:py-3 bg-black/40 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md text-center min-h-[48px] flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+                See What's Inside
             </a>
         </div>
         

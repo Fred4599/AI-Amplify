@@ -1,26 +1,46 @@
 ---
+import { BOOKING_URL } from '../config';
 ---
-<section id="join" class="w-full max-w-[1200px] px-4 sm:px-6 py-16 sm:py-24 md:py-32 z-20">
-    <div class="glass-panel rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-purple-900/20">
+<section id="join" class="w-full max-w-[1200px] px-4 sm:px-6 py-16 sm:py-24 md:py-32 z-20 scroll-mt-24">
+    <div class="glass-panel rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl shadow-purple-900/20">
         <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-500/10 blur-[100px] rounded-full"></div>
+        <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-600/15 blur-[100px] rounded-full"></div>
 
-        <div class="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto">
-            <div class="reveal-text">
-                <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
-                    Ready to build faster and think bigger with AI?
-                </h2>
-                <p class="text-neutral-400 leading-relaxed mb-8 text-sm md:text-base">
-                    The main offer is free: join Amplify Academy on Skool for free community and free courses. Learn, ask questions, and be part of a growing community building with AI. Create more time for what matters—family, contribution, or your passion.
+        <div class="relative z-10 flex flex-col items-center max-w-xl mx-auto">
+            <!-- Section label -->
+            <span class="reveal-text text-xs font-mono text-purple-400 uppercase tracking-widest mb-3 block">Free Strategy Call</span>
+
+            <h2 class="reveal-text font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-6">
+                Ready to Start Making Money with AI?
+            </h2>
+
+            <p class="reveal-text text-neutral-400 text-center text-sm sm:text-base leading-relaxed mb-6">
+                Apply for your free 15-minute call. A few quick questions (60 seconds), then pick a time. On the call you get a personalized roadmap to your first $1K–5K with AI—no risk, no obligation.
+            </p>
+
+            <p class="reveal-text text-white/90 text-center text-sm font-medium mb-8">
+                Spots are limited. If you're serious, book now.
+            </p>
+
+            <!-- CTA block -->
+            <div class="reveal-text w-full flex flex-col items-center mb-8">
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="group w-full sm:w-auto max-w-md inline-flex items-center justify-center gap-2 px-8 py-5 sm:py-6 bg-white text-black rounded-2xl font-bold text-base sm:text-lg hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_24px_rgba(255,255,255,0.25)]">
+                    Book My Free AI Money-Making Strategy Call
+                    <i data-lucide="arrow-right" class="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-0.5"></i>
+                </a>
+                <p class="text-neutral-500 text-xs sm:text-sm mt-3 text-center">
+                    Only 12 spots left this week · 60 seconds to apply · 100% free
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto">
-                    <a href="https://www.skool.com/ai-amplify-academy-5501/about" target="_blank" rel="noopener noreferrer" class="group px-8 py-3.5 sm:py-3 bg-white text-black rounded-full font-semibold text-sm hover:bg-neutral-200 transition-colors inline-flex items-center justify-center gap-2 min-h-[48px]">
-                        Join the free community
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="#premium" class="px-8 py-3.5 sm:py-3 bg-black/40 border border-white/20 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all hover:border-white/40 backdrop-blur-md text-center min-h-[48px] flex items-center justify-center">
-                        Want more? Premium
-                    </a>
+            </div>
+
+            <!-- Trust badges: compact strip -->
+            <div class="reveal-text w-full rounded-xl bg-white/[0.03] border border-white/5 p-4 sm:p-5">
+                <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                    <span class="inline-flex items-center gap-2 text-neutral-400 text-xs sm:text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0"></i> No Credit Card Required</span>
+                    <span class="inline-flex items-center gap-2 text-neutral-400 text-xs sm:text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0"></i> No Obligation to Buy</span>
+                    <span class="inline-flex items-center gap-2 text-neutral-400 text-xs sm:text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0"></i> 100% Free Strategy Session</span>
+                    <span class="inline-flex items-center gap-2 text-neutral-400 text-xs sm:text-sm"><i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0"></i> Personalized Action Plan</span>
                 </div>
             </div>
         </div>

@@ -2,20 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Events from '../components/Events.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import StrategyCallOffer from '../components/StrategyCallOffer.astro';
+import WhatYouGet from '../components/WhatYouGet.astro';
 import Premium from '../components/Premium.astro';
+import FAQ from '../components/FAQ.astro';
 import Join from '../components/Join.astro';
 import Footer from '../components/Footer.astro';
+import StickyCallCTA from '../components/StickyCallCTA.astro';
 ---
 
-<Layout title="AI Amplify Academy | Practical AI Community">
+<Layout title="Make Money With AI | Free Strategy Call — AI Amplify Academy">
 	<Header />
-	<main class="w-full flex flex-col items-center relative z-10">
+	<StickyCallCTA />
+	<main class="w-full flex flex-col items-center relative z-10 pb-24 sm:pb-24 md:pb-20">
 		<Hero />
-		<About />
-		<Events />
+		<ProblemSolution />
+		<WhatYouGet />
 		<Premium />
+		<StrategyCallOffer />
+		<FAQ />
 		<Join />
 	</main>
 	<Footer />

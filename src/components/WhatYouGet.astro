@@ -13,20 +13,67 @@ import { BOOKING_URL } from '../config';
 
         <div class="space-y-6 sm:space-y-8">
             <!-- Feature 0: All-in-One AI Software -->
-            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-purple-500/20 transition-colors reveal-text">
-                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white">Affordable Software That Can Do It All</h3>
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-purple-500/20 transition-colors reveal-text overflow-hidden">
+                <h3 class="text-xl sm:text-2xl font-semibold text-white mb-2">Affordable Software That Can Do It All</h3>
+                <p class="text-neutral-400 text-sm sm:text-base mb-6 max-w-2xl">One platform with the AI functions entrepreneurs use to make money—without juggling a dozen tools or breaking the bank.</p>
+                <p class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-4">AI functions you can tap into</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6">
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="phone" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Voice AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Answer, qualify and book appointments 24/7.</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Conversation AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Chatbots that feel human. Engage and close leads day or night.</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="star" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Reviews AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Respond to every review, boost reputation and climb rankings.</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="layout" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Funnel AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Sales funnels built in seconds. Click. Done. Selling.</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Content AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Campaign-ready copy, designs and ideas in moments.</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.06] transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                            <i data-lucide="git-branch" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-white block text-sm sm:text-base">Workflow AI</span>
+                            <span class="text-neutral-400 text-xs sm:text-sm">Automations that run smarter, faster and easier.</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-neutral-400 text-sm sm:text-base mb-4">One platform with the AI functions entrepreneurs use to make money—without juggling a dozen tools or breaking the bank:</p>
-                <ul class="space-y-2 text-neutral-300 text-sm sm:text-base mb-4">
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Voice AI</span> — Answer, qualify and book appointments 24/7. Never miss a call.</li>
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Conversation AI</span> — Chatbots that feel human. Engage, nurture and close leads day or night.</li>
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Reviews AI</span> — Respond to every review, boost reputation and climb search rankings.</li>
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Funnel AI</span> — Sales funnels built in seconds. Click. Done. Selling.</li>
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Content AI</span> — Campaign-ready copy, designs and ideas in moments.</li>
-                    <li class="flex gap-2"><span class="text-purple-400 shrink-0">•</span> <span class="font-medium text-white">Workflow AI</span> — Automations that run smarter, faster and easier.</li>
-                </ul>
-                <p class="text-neutral-400 text-sm">One login. One price. The AI stack serious entrepreneurs use to get clients and scale.</p>
+                <p class="text-neutral-300 text-sm sm:text-base text-center sm:text-left py-2 border-t border-white/5">One login. One price. The AI stack serious entrepreneurs use to get clients and scale.</p>
             </div>
 
             <!-- Feature 1: 7 Money-Making AI Courses -->
@@ -103,7 +150,7 @@ import { BOOKING_URL } from '../config';
                 <p class="text-purple-400 text-lg sm:text-xl font-bold">Your Investment: $30/month <span class="text-neutral-400 font-normal text-base">(or FREE with Go High Level)</span></p>
                 <p class="text-neutral-400 text-sm mt-2">Not sure yet? Book a free call and get your roadmap. The Academy is here when you're ready to move forward.</p>
                 <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 mt-6 px-8 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition-all">
-                    Book your free strategy call
+                    Book your free call with Braydon
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
